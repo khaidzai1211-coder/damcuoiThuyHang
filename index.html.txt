@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Wedding Invitation | Phạm Hằng & Danh Thịnh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --gold:#c2a56d;
+    --dark:#2b2b2b;
+    --light:#faf8f6;
+}
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:var(--light);
+    color:var(--dark);
+}
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+}
+.title{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    margin-bottom:40px;
+}
+.hero{
+    min-height:100vh;
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1523437237431-9fa28a3f9c47");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.hero h1{
+    color:#fff;
+    font-size:48px;
+    font-family:'Playfair Display',serif;
+}
+.hero p{color:#eee;letter-spacing:3px}
+
+.card{
+    background:#fff;
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.time-box{
+    background:#fff;
+    padding:20px 25px;
+    border-radius:12px;
+    min-width:90px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+.time-box h3{margin:0;font-size:28px;color:var(--gold)}
+
+iframe{
+    width:100%;
+    height:300px;
+    border:0;
+    border-radius:16px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+}
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+form input, form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+form button{
+    background:var(--gold);
+    color:#fff;
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+footer{
+    background:var(--dark);
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+}
+
+/* MUSIC */
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:var(--gold);
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    padding:12px 18px;
+    cursor:pointer;
+    z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/12/audio_f6f1e4c23d.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Nhạc</button>
+
+<script>
+let play = false;
+function toggleMusic(){
+  const m = document.getElementById("music");
+  play ? m.pause() : m.play();
+  play = !play;
+}
+</script>
+
+</script>
+
+
+<script>
+let play=false;
+function toggleMusic(){
+ const m=document.getElementById("music");
+ play?m.pause():m.play();
+ play=!play;
+}
+</script>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Phạm Hằng & Danh Thịnh</h1>
+    <p>WE ARE GETTING MARRIED</p>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<section>
+<h2 class="title">Ngày Trọng Đại</h2>
+<div class="card">
+<p><strong>Ngày cưới:</strong> 20 / 10 / 2026</p>
+<div class="countdown" id="countdown"></div>
+</div>
+</section>
+
+<script>
+const weddingDate=new Date("2026-10-20T00:00:00").getTime();
+setInterval(()=>{
+ const now=new Date().getTime();
+ const d=weddingDate-now;
+ const days=Math.floor(d/(1000*60*60*24));
+ const hours=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+ const mins=Math.floor((d%(1000*60*60))/(1000*60));
+ document.getElementById("countdown").innerHTML=
+ `<div class="time-box"><h3>${days}</h3>Ngày</div>
+  <div class="time-box"><h3>${hours}</h3>Giờ</div>
+  <div class="time-box"><h3>${mins}</h3>Phút</div>`;
+},1000);
+</script>
+
+<!-- MAPS -->
+<section>
+<h2 class="title">Địa Điểm</h2>
+<div class="grid">
+<div class="card">
+<h3>🏡 Nhà Gái</h3>
+<p>Hưng Thượng – Ý Yên – Ninh Bình</p>
+<iframe src="https://maps.google.com/maps?q=Ý%20Yên%20Ninh%20Bình&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+<div class="card">
+<h3>🏠 Nhà Trai</h3>
+<p>Thanh Hóa</p>
+<iframe src="https://maps.google.com/maps?q=Thanh%20Hóa&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section>
+<h2 class="title">Album Ảnh Cưới</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+</div>
+</section>
+
+<!-- RSVP -->
+<section>
+<h2 class="title">Xác Nhận Tham Dự</h2>
+<div class="card">
+<form>
+<input type="text" placeholder="Họ và tên">
+<input type="tel" placeholder="Số điện thoại">
+<textarea placeholder="Lời chúc"></textarea>
+<button>Gửi Xác Nhận</button>
+</form>
+<p><em>(Form có thể kết nối Google Form / Email khi up online)</em></p>
+</div>
+</section>
+
+<footer>
+<p>Trân trọng kính mời ♥</p>
+<p>Phạm Hằng & Danh Thịnh</p>
+</footer>
+
+</body>
+</html>
